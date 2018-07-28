@@ -2,6 +2,7 @@
 import React from 'react';
 import {Panel, Badge, Button} from 'react-bootstrap';
 import {Icon} from 'react-font-awesome-5';
+import {HasPermission} from "atp-uac";
 
 export default ({entityTags, isEditing, showTagEditor, onKeyDown, hideTagEditor, deleteTag, onChange}) =>
     <Panel>
@@ -19,15 +20,16 @@ export default ({entityTags, isEditing, showTagEditor, onKeyDown, hideTagEditor,
                     }
                 </Badge>
             )}
-            {isEditing
-                ? <span>
-                    <input autoFocus onChange={onChange} onKeyDown={onKeyDown} />&nbsp;
-                    <span className="text-danger"><Icon.Times onClick={hideTagEditor} /></span>
-                  </span>
-                : <Button bsStyle="link" onClick={showTagEditor}>
-                    <Icon.Plus /> Add tags
-                  </Button>
-            }
-
+            <HasPermission permissions={["tag.tag.create"]}>
+                {isEditing
+                    ? <span>
+                        <input autoFocus onChange={onChange} onKeyDown={onKeyDown} />&nbsp;
+                        <span className="text-danger"><Icon.Times onClick={hideTagEditor} /></span>
+                      </span>
+                    : <Button bsStyle="link" onClick={showTagEditor}>
+                        <Icon.Plus /> Add tags
+                      </Button>
+                }
+            </HasPermission>
         </Panel.Body>
     </Panel>;
