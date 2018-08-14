@@ -39,8 +39,8 @@
   "dependencies": {
     "atp-pointfree": "^0.11.1",
     "atp-redux-entity": "^0.3.1",
-    "atp-uac": "^0.8.4",
-    "atp-ui": "^0.12.0",
+    "atp-uac": "^0.8.5",
+    "basic-reducers": "^0.1.1",
     "keycode": "^2.2.0",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.1",
