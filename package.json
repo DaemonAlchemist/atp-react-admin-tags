@@ -37,13 +37,13 @@
     "mocha": "^5.2.0"
   },
   "dependencies": {
-    "atp-pointfree": "^0.11.1",
-    "atp-redux-entity": "^0.3.1",
+    "atp-pointfree": "^0.11.3",
+    "atp-redux-entity": "^0.3.3",
     "atp-uac": "^0.8.5",
-    "basic-reducers": "^0.1.1",
+    "basic-reducers": "^0.2.1",
     "keycode": "^2.2.0",
     "react": "^16.4.2",
-    "react-bootstrap": "^0.32.1",
+    "react-bootstrap": "^0.32.3",
     "react-font-awesome-5": "^0.2.2",
     "react-lifecycle-component": "^3.0.0"
   }

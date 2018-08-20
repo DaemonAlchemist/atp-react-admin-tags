@@ -29,7 +29,7 @@ export default connectWithLifecycle(
                 : ""
         }
     },
-    (dispatch, {id, onAdd}) => ({
+    (dispatch, {id, onAdd, noCreate}) => ({
         componentDidMount: () => {
         },
         showTagEditor: () => {
@@ -44,21 +44,21 @@ export default connectWithLifecycle(
         onKeyDown: (selectedTag, maxCount) => function(e) {
             e.persist();
             setTimeout(() => {
-                console.log("selected tag: " + selectedTag);
                 const tag = selectedTag || e.target.value || "";
                 switch(keycode(e)) {
                     case 'esc':
                         dispatch(toggle.hide(toggleId(id)));
                         break;
                     case 'enter':
-                        //TODO:  Add option to disallow new tags
-                        dispatch(input.clear(toggleId(id)));
-                        dispatch(toggle.hide(toggleId(id)));
-                        dispatch(counter.reset(toggleId(id)));
-                        setTimeout(() => {
-                            dispatch(toggle.show(toggleId(id)));
-                        }, 0);
-                        onAdd(tag);
+                        if(selectedTag || !noCreate) {
+                            dispatch(input.clear(toggleId(id)));
+                            dispatch(toggle.hide(toggleId(id)));
+                            dispatch(counter.reset(toggleId(id)));
+                            setTimeout(() => {
+                                dispatch(toggle.show(toggleId(id)));
+                            }, 0);
+                            onAdd(tag);
+                        }
                         break;
                     case 'down':
                         dispatch(counter.increment(toggleId(id), maxCount));
