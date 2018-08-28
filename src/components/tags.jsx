@@ -12,7 +12,7 @@ export default ({entityTags, selectorId, onDeleteTag, onAddTag}) =>
         </Panel.Heading>
         <Panel.Body>
             {entityTags.map(tag =>
-                <Badge style={{marginRight: "8px"}}>
+                <Badge key={tag.id} style={{marginRight: "8px"}}>
                     {tag &&
                         <span>
                             {tag.tag}&nbsp;

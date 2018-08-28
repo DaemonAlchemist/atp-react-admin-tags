@@ -39,7 +39,7 @@
   "dependencies": {
     "atp-pointfree": "^0.11.5",
     "atp-redux-entity": "^0.3.3",
-    "atp-uac": "^0.8.6",
+    "atp-uac": "^0.8.8",
     "basic-reducers": "^0.2.1",
     "keycode": "^2.2.0",
     "react": "^16.4.2",
